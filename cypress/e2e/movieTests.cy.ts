@@ -22,7 +22,7 @@ it("Testing Create Html With Mock Data And MovieSort", () => {
   cy.get(".movie:nth-of-type(4)").should("contain", "Mock Movie 4");
 });
 
-it("should not get mock data with incorrect url", () => {
+it("Should Not Render Data With Incorrect Input", () => {
   cy.intercept("GET", "http://omdbapi.com/?apikey=416ed51a&s=*", {
     fixture: "badResponse",
   }).as("omdbCall");
@@ -58,7 +58,7 @@ describe("Testing Create Html Functionality", () => {
   });
 });
 
-describe("Testing movieSort with API data", () => {
+describe("Testing movieSort With API Data", () => {
   it("Should print movies from A-Z", () => {
     cy.get("input#searchText").should("exist");
     cy.get("input#searchText").type("cars").should("have.value", "cars");
@@ -71,7 +71,7 @@ describe("Testing movieSort with API data", () => {
   });
 });
 
-describe("Testing what happends when no input is specified", () => {
+describe("Testing What Happends With Incorrect Input", () => {
   it("should display error message", () => {
     cy.get("#searchText").type(" ");
     cy.get("#search").click();
